@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      db.host=${secrets.db.host}
-      db.port=${secrets.db.port}
-      db.name=${secrets.db.name}
-      db.username=${secrets.db.username}
-      db.password=${secrets.db.password}
+      db.host: ${secrets.db.host}
+      db.port: ${secrets.db.port}
+      db.name: ${secrets.db.name}
+      db.username: ${secrets.db.username}
+      db.password: ${secrets.db.password}
 
     steps:
     - uses: actions/checkout@v3
