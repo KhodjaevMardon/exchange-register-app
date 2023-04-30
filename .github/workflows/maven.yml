@@ -25,6 +25,7 @@ jobs:
      DB_NAME: ${{secrets.DB_NAME}}
      DB_USERNAME: ${{secrets.DB_USERNAME}}
      DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+     APP_PORT: ${{secrets.APP_PORT}}
 
     steps:
     - uses: actions/checkout@v3
@@ -38,7 +39,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Execute .jar file
-        run: sudo kill -9 `sudo lsof -t -i:${{secrets.APP_PORT}}` & sudo java -jar /home/ubuntu/actions-runner/_work/exchange-register-app/exchange-register-app/target/exchange-register-app-0.0.1-SNAPSHOT.jar &
+        run: sudo kill -9 `sudo lsof -t -i:$APP_PORT` & sudo java -jar /home/ubuntu/actions-runner/_work/exchange-register-app/exchange-register-app/target/exchange-register-app-0.0.1-SNAPSHOT.jar &
 
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
